@@ -1,4 +1,4 @@
-import React , { useState} from "react";
+import { useState } from "react";
 import "./App.css";
 
 const WIN_CONDITIONS = [
@@ -10,7 +10,7 @@ const WIN_CONDITIONS = [
 function App() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
-  const []winner, setWinner] = useState(null);
+  const [winner, setWinner] = useState(null);
   const [isTie, setIsTie] = useState(false);
 
   const checkWinner = (board) => {
@@ -25,7 +25,7 @@ function App() {
   const handleClick = (index) => {
     if (board[index] || winner) return; // Ignore if cell is already filled or game is over
 
-    const newBoard = [. . . board];
+    const newBoard = [... board];
     newBoard[index] = isXNext ? 'X' : 'O';
     setBoard(newBoard);
     const gameWinner = checkWinner(newBoard);
@@ -81,8 +81,9 @@ function App() {
       )}
       <button onClick={resetGame} style={{ marginTop: "20px", padding: "10px 20px", fontSize: "1rem" }}>
         Reset Game
-    </div>
       </button>
+    </div>
+      
   );
 
 }
